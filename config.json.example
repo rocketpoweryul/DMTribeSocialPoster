@@ -1,0 +1,11 @@
+{
+    "csv_path": "C:\\Path\\To\\Your\\DMT_WatchlistHits.csv",
+    "output_path": "C:\\Path\\To\\Your\\Output\\Directory",
+    "top_items_count": 3,
+    "number_of_top_stocks": 10,
+    "linkedin_api_endpoint": "http://localhost:11434/api/generate",
+    "linkedin_model": "mistral-small",
+    "table_image_width": 8,
+    "table_image_height_per_row": 0.6,
+    "linkedin_dpi": 300
+}
