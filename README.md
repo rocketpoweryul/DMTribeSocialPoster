@@ -49,7 +49,7 @@ Start by cloning the repository from GitHub and navigating to the directory:
 
 ```bash
 $ git clone https://github.com/rocketpoweryul/DMTribeSocialPoster
-$ cd stock-market-analysis
+$ cd DMTribeSocialPoster
 ```
 
 ### 2. Setup Environment Variables
