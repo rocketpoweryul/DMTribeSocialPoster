@@ -138,7 +138,7 @@ Check out the leaders below ⬇️
 
 The script also generates a beautiful stock summary table, ideal for sharing on LinkedIn or other platforms:
 
-![Stock Table Example](https://via.placeholder.com/800x400.png?text=Stock+Table+Example)
+![Stock Table Example](Top_Stocks_Table.png)
 
 ## Contributing
 
