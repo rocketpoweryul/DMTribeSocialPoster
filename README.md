@@ -48,7 +48,7 @@ Follow the instructions below to set up everything you need!
 Start by cloning the repository from GitHub and navigating to the directory:
 
 ```bash
-$ git clone https://github.com/yourusername/stock-market-analysis.git
+$ git clone https://github.com/rocketpoweryul/DMTribeSocialPoster
 $ cd stock-market-analysis
 ```
 
@@ -92,13 +92,15 @@ Edit the `config.json` file to match your specific paths and settings. Here’s 
 
 ### 4. Install Dependencies
 
-Set up a virtual environment and install all necessary dependencies:
+Set up a conda environment and install all necessary dependencies:
 
 ```bash
-$ python -m venv venv
-$ source venv/bin/activate  # On Windows: venv\Scripts\activate
-$ pip install -r requirements.txt
+$ conda create --name stock_analysis_env python=3.8
+$ conda activate stock_analysis_env
+$ conda install --file requirements.txt
 ```
+
+This will create a new conda environment called `stock_analysis_env` and install the required packages specified in `requirements.txt`.
 
 ### 5. Run the Project
 
