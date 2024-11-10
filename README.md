@@ -1,4 +1,4 @@
-# Stock Market Analysis & LinkedIn Content Automation
+# DMTribe Social Media Poster
 
 ![Stock Analysis Banner](banner.png)
 
