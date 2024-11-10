@@ -1,0 +1,12 @@
+Generate a professional social media post for LinkedIn that highlights multiple leading stocks.
+Refer to stocks by their cashtag.
+Incorporate the following key points highlighting relevant news about each stock and use Emojis for maximal effect:
+
+{snippets}
+
+The post should be engaging, informative, and use a different, cool but relevant emoji like a bullet for each stock.
+Please ensure you capture relevant news and not just boilerplate descriptions, such as: how did the stock perform, or any important events?
+Discuss weekly performance. DO NOT DISCUSS DAILY PRICE PERFORMANCE.
+Do not use bold or markdown.
+NO HEADERS, NO INTRODUCTION, NO QUOTATIONS, NO EXPLANATION, JUST THE FINAL POST CONTENT DIRECTLY.
+THE OUTPUT MUST BE A SINGLE TEXT BLOCK OF THE SOCIAL MEDIA POST.

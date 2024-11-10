@@ -27,6 +27,8 @@ LINKEDIN_MODEL = config.get('linkedin_model', 'mistral-small')
 TABLE_IMAGE_WIDTH = config.get('table_image_width', 8)
 TABLE_IMAGE_HEIGHT_PER_ROW = config.get('table_image_height_per_row', 0.6)
 LINKEDIN_DPI = config.get('linkedin_dpi', 300)
+PROMPT_TEMPLATE_PATH = config.get('prompt_template_path', 'prompt_template.txt')
+
 
 # Main function to execute the entire process
 def main():
@@ -188,6 +190,16 @@ def generate_post(prompt):
         print(f"An error occurred while interacting with Ollama API: {e}")
     return None
 
+def load_prompt_template():
+    """
+    Loads the prompt template from an external file.
+
+    Returns:
+        str: The prompt template.
+    """
+    with open(PROMPT_TEMPLATE_PATH, 'r') as file:
+        return file.read()
+
 def create_linkedin_post(top_items, search_results):
     """
     Creates a LinkedIn post for the top items.
@@ -204,17 +216,8 @@ def create_linkedin_post(top_items, search_results):
         for item in top_items
     ]
     
-    prompt = (
-        "Compose a professional social media post for LinkedIn that highlights multiple leading stocks.\n"
-        "Refer to stocks by their cashtag.\n"
-        "Incorporate the following key points highlighting relevant news about each stock and use Emojis for maximal effect:\n\n"
-        + "\n\n".join(snippets) +
-        "\n\nThe post should be engaging, informative, use an emoji for each stock\n"
-        "Please ensure you capture relevant news and not just boilerplate descriptions. e.g. how did the stock do? Any important events?\n"
-        "Discuss weekly performance. DO NOT DISCUSS DAILY PRICE PERFORMANCE.\n"
-        "Don't use bold or markdown, keep it concise and professional but maximally engaging, I want to gain followers!"
-        "Don't output anything except the actual post as it needs to be sent to LinkedIn via API."
-    )
+    prompt_template = load_prompt_template()
+    prompt = prompt_template.replace("{snippets}", "\n\n".join(snippets))
 
     return generate_post(prompt)
 
