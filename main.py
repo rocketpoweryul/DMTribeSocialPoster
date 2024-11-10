@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 from matplotlib.table import Table
 from dotenv import load_dotenv
 from PIL import Image
+import subprocess  # Added for opening files
+import platform  # Added to determine the OS
 
 # Load environment variables from .env file
 load_dotenv()
@@ -53,7 +55,12 @@ def main():
         save_linkedin_post(post, OUTPUT_PATH)
 
     # Create a table image from the DataFrame
-    create_stock_table_image(df, num_items=NUMBER_OF_TOP_STOCKS, output_path=OUTPUT_PATH + 'Top_Stocks_Table.png')
+    image_path = create_stock_table_image(df, num_items=NUMBER_OF_TOP_STOCKS, output_path=OUTPUT_PATH + 'Top_Stocks_Table.png')
+
+    # Open the resulting text file and image if they exist
+    #if image_path:
+    #    open_file(image_path)
+    open_file(OUTPUT_PATH + 'Generated_LinkedIn_Post.txt')
 
 # Utility Functions
 def validate_bing_api_key():
@@ -231,7 +238,7 @@ def save_linkedin_post(post, output_path):
     """
     file_path = os.path.join(output_path, 'Generated_LinkedIn_Post.txt')
     with open(file_path, 'w', encoding='utf-8') as f:
-        f.write(post + "\n\n#investing #stocks #stockmarket #tech #AI #growth $QQQ $SPY $IWM $DIA #stocks")
+        f.write(post + "\n\nCheck out the leaders below ⤵️\n\n#investing #stocks #stockmarket #tech #AI #growth $QQQ $SPY $IWM $DIA #stocks")
     print(f"\nGenerated LinkedIn post saved to: {file_path}\n")
 
 def create_stock_table_image(df, num_items, output_path):
@@ -291,6 +298,19 @@ def create_stock_table_image(df, num_items, output_path):
     except Exception as e:
         print(f"An error occurred while creating the table image: {e}")
         return None
+
+def open_file(file_path):
+    """
+    Opens a file using the default application on Windows.
+
+    Args:
+        file_path (str): Path to the file to be opened.
+    """
+    if platform.system() == 'Windows':
+        try:
+            subprocess.Popen(['start', file_path], shell=True)
+        except Exception as e:
+            print(f"An error occurred while trying to open the file: {e}")
 
 # Execute the main function
 if __name__ == "__main__":
